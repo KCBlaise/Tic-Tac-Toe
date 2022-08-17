@@ -7,6 +7,22 @@
 
 .grid-position{
     text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
     background-color: aqua;
     border: 1px solid red;
+    position: relative;
 }
+
+.winner{
+    color: lawngreen;
+
+}
+
+/* .winner::after{
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 1px solid #111;
+    width: 100%;
+} */
