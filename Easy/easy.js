@@ -130,19 +130,6 @@ function playerInput(){
     checkWinner();
 }
 
-//else if needs to be implemented
-// function winningPlays(entry1, entry2, entry3){
-//     if(entry1.textContent == 'O' && entry2.textContent == 'O' && entry3.firstChild.type == 'checkbox'){
-//         allGridInputs = arrayRemove(allGridInputs, entry3.firstChild);
-//         entry3.innerHTML = 'O';
-//     }else if(entry1.textContent == 'O' && entry3.textContent == 'O' && entry2.firstChild.type == 'checkbox'){
-//         allGridInputs = arrayRemove(allGridInputs, entry2.firstChild);
-//         entry2.innerHTML = 'O';
-//     }else if(entry2.textContent == 'O' && entry3.textContent == 'O' && entry1.firstChild.type == 'checkbox'){
-//         allGridInputs = arrayRemove(allGridInputs, entry1.firstChild);
-//         entry1.innerHTML = 'O';}
-// }
-
 function checkWinner(){
     //Player Horizontal Wins
     checkWinningEntries(gridPosition1, gridPosition2, gridPosition3, 'X');

@@ -4,41 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../XO - favicon.png" type="image/x-icon">
     <title>Tic-Tac-Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+    <script src="https://kit.fontawesome.com/fad9bd5042.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="wrapper">
+        <header class="header">
+            <img src="../XO - logo - in page.png">
+            Tic-Tac-Toe
+        </header>
 
-    <div class="game-board">
-        <span class="grid-position" id="grid-position1"><input type="checkbox" id="grid-input1">
-        </span>
+        <main class="main">
+            <div class="control-btns-wrap">
+                <button class="restart-btn control-btns" title="Restart Game">
+                    Restart <i class="fa-solid fa-rotate-left"></i>
+                </button>
+                <button class="menu-btn control-btns" title="Main Menu">
+                    Main Menu <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
 
-        <span class="grid-position" id="grid-position2"><input type="checkbox" id="grid-input2">
-        </span>
-
-        <span class="grid-position" id="grid-position3"><input type="checkbox" id="grid-input3">
-        </span>
-
-        <span class="grid-position" id="grid-position4"><input type="checkbox" id="grid-input4">
-        </span>
-
-        <span class="grid-position" id="grid-position5"><input type="checkbox" id="grid-input5">
-        </span>
-
-        <span class="grid-position" id="grid-position6"><input type="checkbox" id="grid-input6">
-        </span>
-
-        <span class="grid-position" id="grid-position7"><input type="checkbox" id="grid-input7">
-        </span>
-
-        <span class="grid-position" id="grid-position8"><input type="checkbox" id="grid-input8">
-        </span>
-
-        <span class="grid-position" id="grid-position9"><input type="checkbox" id="grid-input9">
-        </span>
-
-
+            <div class="game-board-wrap">
+                <div class="game-board">
+                    <span class="grid-position" id="grid-position1"><input type="checkbox" id="grid-input1">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position2"><input type="checkbox" id="grid-input2">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position3"><input type="checkbox" id="grid-input3">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position4"><input type="checkbox" id="grid-input4">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position5"><input type="checkbox" id="grid-input5">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position6"><input type="checkbox" id="grid-input6">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position7"><input type="checkbox" id="grid-input7">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position8"><input type="checkbox" id="grid-input8">
+                    </span>
+                    
+                    <span class="grid-position" id="grid-position9"><input type="checkbox" id="grid-input9">
+                    </span>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <div class="max-width-wrapper">
+                Developed by&nbsp;<a href="#">Blaise Okoyechira</a>, 2022.
+            </div>
+        </footer>
     </div>
+
     
     <script src="./easy.js"></script>
 </body>

@@ -1,3 +1,9 @@
+const restartButton = document.querySelector('.restart-btn');
+restartButton.onclick = () =>{
+    location.reload()
+}
+
+
 const gameBoard = document.querySelector('.game-board');
 
 const gridPosition1 = document.querySelector('#grid-position1');
@@ -36,7 +42,7 @@ function playerInput(){
             e.addEventListener('click', ()=>{
                 e.parentElement.innerHTML = 'X';
                 allGridInputs = arrayRemove(allGridInputs, e);
-                console.log(allGridInputs);
+                // console.log(allGridInputs);
                 computerInput();
             })
         }
@@ -213,8 +219,8 @@ function computerInput(){
         let compInput = allGridInputs[compInputIndex];
         compInput.parentElement.innerHTML = 'O';
         allGridInputs = arrayRemove(allGridInputs, compInput);
-        console.log(allGridInputs);
-        console.log(compInput.type)
+        // console.log(allGridInputs);
+        // console.log(compInput.type)
     }
     checkWinner();
 }
