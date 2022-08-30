@@ -1,3 +1,11 @@
+const restartButton = document.querySelector('.restart-btn');
+restartButton.onclick = () =>{
+    location.reload()
+}
+
+const wrapper = document.querySelector('.wrapper');
+const displayWinner = document.querySelector('.display-winner');
+
 const gameBoard = document.querySelector('.game-board');
 
 const gridPosition1 = document.querySelector('#grid-position1');
@@ -160,19 +168,29 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
     if(entry1.textContent == alphabetPlayed && entry2.textContent == alphabetPlayed && entry3.textContent == alphabetPlayed){
         allGridPositions.forEach(
             (item) =>{
-                console.log(item)
+                item.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+                console.log(item);
                 if(item.firstChild.type == 'checkbox'){
                     item.innerHTML =  '';
-                }
+                };
             }
-            )
-            entry1.classList.add('winner');entry2.classList.add('winner');entry3.classList.add('winner');
-            if(alphabetPlayed == 'X'){
-                console.log('Player Wins');
-            }
-            if(alphabetPlayed == 'O'){
-                console.log('Comp Wins')
-            }
+        )
+        entry1.classList.add('winner');entry2.classList.add('winner');entry3.classList.add('winner');
+        gameBoard.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+        
+        if(alphabetPlayed == 'X'){
+            console.log('Player Wins');
+            wrapper.classList.add('x-wins');
+            displayWinner.innerText = "'X' Wins";
+            displayWinner.classList.add('winner-animation');
+        }
+
+        if(alphabetPlayed == 'O'){
+            console.log('Comp Wins');
+            wrapper.classList.add('o-wins');
+            displayWinner.innerText = "'O' Wins";
+            displayWinner.classList.add('winner-animation');
+        }
     }
 
 }
