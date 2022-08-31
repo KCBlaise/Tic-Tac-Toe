@@ -36,16 +36,21 @@ function arrayRemove(arr, value){
     return arr.filter((e) => {return e != value});
 };
 
+let checkPlayer = 'Player'
 
 function playerInput(){
     checkWinner();
+    checkDraw();
     allGridInputs.forEach(
         (e) =>{
             e.addEventListener('click', ()=>{
-                e.parentElement.innerHTML = 'X';
-                allGridInputs = arrayRemove(allGridInputs, e);
-                // console.log(allGridInputs);
-                computerInput();
+                if(checkPlayer === 'Player'){
+                    e.parentElement.innerHTML = 'X';
+                    allGridInputs = arrayRemove(allGridInputs, e);
+                    checkPlayer = 'Comp';
+                    // console.log(allGridInputs);
+                    computerInput();
+                }else{e.checked = false}
             })
         }
     )
@@ -53,178 +58,184 @@ function playerInput(){
 
 function computerInput(){
     checkWinner();
+    checkDraw();
     // Step-by-Step Objectives
     // -Always play middle first if player does not
     // -Win where possible
     // -Prevent easy horizontal wins
     // -Prevent easy vertical wins
     // -Play random
-
-    //Play Middle
-    if(gridPosition5.firstElementChild == gridInput5){
-        allGridInputs = arrayRemove(allGridInputs, gridInput5);
-        gridPosition5.innerHTML = 'O';
-    }
-
-    //Try to win
-    //Horizontal wins
-    else if(gridPosition1.textContent == 'O' && gridPosition2.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
-        allGridInputs = arrayRemove(allGridInputs, gridInput3);
-        gridPosition3.innerHTML = 'O';
-    }else if(gridPosition1.textContent == 'O' && gridPosition3.textContent == 'O' && gridPosition2.firstElementChild == gridInput2){
-        allGridInputs = arrayRemove(allGridInputs, gridInput2);
-        gridPosition2.innerHTML = 'O';
-    }else if(gridPosition2.textContent == 'O' && gridPosition3.textContent == 'O' && gridPosition1.firstElementChild == gridInput1){
-        allGridInputs = arrayRemove(allGridInputs, gridInput1);
-        gridPosition1.innerHTML = 'O';
-    }else if(gridPosition4.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition6.firstElementChild == gridInput6){
-        allGridInputs = arrayRemove(allGridInputs, gridInput6);
-        gridPosition6.innerHTML = 'O';
-    }else if(gridPosition4.textContent == 'O' && gridPosition6.textContent == 'O' && gridPosition5.firstElementChild == gridInput5){
-        allGridInputs = arrayRemove(allGridInputs, gridInput5);
-        gridPosition5.innerHTML = 'O';
-    }else if(gridPosition5.textContent == 'O' && gridPosition6.textContent == 'O' && gridPosition4.firstElementChild == gridInput4){
-        allGridInputs = arrayRemove(allGridInputs, gridInput4);
-        gridPosition4.innerHTML = 'O';
-    }else if(gridPosition7.textContent == 'O' && gridPosition8.textContent == 'O' && gridPosition9.firstElementChild == gridInput9){
-        allGridInputs = arrayRemove(allGridInputs, gridInput9);
-        gridPosition9.innerHTML = 'O';
-    }else if(gridPosition7.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition8.firstElementChild == gridInput8){
-        allGridInputs = arrayRemove(allGridInputs, gridInput8);
-        gridPosition8.innerHTML = 'O';
-    }else if(gridPosition8.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition7.firstElementChild == gridInput7){
-        allGridInputs = arrayRemove(allGridInputs, gridInput7);
-        gridPosition7.innerHTML = 'O';
-    }
-    //Vertical wins
-    else if(gridPosition1.textContent == 'O' && gridPosition4.textContent == 'O' && gridPosition7.firstElementChild == gridInput7){
-        allGridInputs = arrayRemove(allGridInputs, gridInput7);
-        gridPosition7.innerHTML = 'O';
-    }else if(gridPosition1.textContent == 'O' && gridPosition7.textContent == 'O' && gridPosition4.firstElementChild == gridInput4){
-        allGridInputs = arrayRemove(allGridInputs, gridInput4);
-        gridPosition4.innerHTML = 'O';
-    }else if(gridPosition4.textContent == 'O' && gridPosition7.textContent == 'O' && gridPosition1.firstElementChild == gridInput1){
-        allGridInputs = arrayRemove(allGridInputs, gridInput1);
-        gridPosition1.innerHTML = 'O';
-    }else if(gridPosition2.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition8.firstElementChild == gridInput8){
-        allGridInputs = arrayRemove(allGridInputs, gridInput8);
-        gridPosition8.innerHTML = 'O';
-    }else if(gridPosition2.textContent == 'O' && gridPosition8.textContent == 'O' && gridPosition5.firstElementChild == gridInput5){
-        allGridInputs = arrayRemove(allGridInputs, gridInput5);
-        gridPosition5.innerHTML = 'O';
-    }else if(gridPosition5.textContent == 'O' && gridPosition8.textContent == 'O' && gridPosition2.firstElementChild == gridInput2){
-        allGridInputs = arrayRemove(allGridInputs, gridInput2);
-        gridPosition2.innerHTML = 'O';
-    }else if(gridPosition3.textContent == 'O' && gridPosition6.textContent == 'O' && gridPosition9.firstElementChild == gridInput9){
-        allGridInputs = arrayRemove(allGridInputs, gridInput9);
-        gridPosition9.innerHTML = 'O';
-    }else if(gridPosition3.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition6.firstElementChild == gridInput6){
-        allGridInputs = arrayRemove(allGridInputs, gridInput6);
-        gridPosition6.innerHTML = 'O';
-    }else if(gridPosition6.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
-        allGridInputs = arrayRemove(allGridInputs, gridInput3);
-        gridPosition3.innerHTML = 'O';
-    }
-    //Diagonal wins
-    else if(gridPosition1.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition9.firstElementChild == gridInput9){
-        allGridInputs = arrayRemove(allGridInputs, gridInput9);
-        gridPosition9.innerHTML = 'O';        
-    }else if(gridPosition9.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition1.firstElementChild == gridInput1){
-        allGridInputs = arrayRemove(allGridInputs, gridInput1);
-        gridPosition1.innerHTML = 'O';
-    }else if(gridPosition3.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition7.firstElementChild == gridInput7){
-        allGridInputs = arrayRemove(allGridInputs, gridInput7);
-        gridPosition7.innerHTML = 'O';
-    }else if(gridPosition7.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
-        allGridInputs = arrayRemove(allGridInputs, gridInput3);
-        gridPosition3.innerHTML = 'O';
-    }
+    setTimeout(() => {
+        
+        //Play Middle
+        if(gridPosition5.firstElementChild == gridInput5){
+            allGridInputs = arrayRemove(allGridInputs, gridInput5);
+            gridPosition5.innerHTML = 'O';
+        }
     
-    //Horizontal blocks
-    else if(gridPosition1.textContent == 'X' && gridPosition2.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
-        allGridInputs = arrayRemove(allGridInputs, gridInput3);
-        gridPosition3.innerHTML = 'O';
-    }else if(gridPosition1.textContent == 'X' && gridPosition3.textContent == 'X' && gridPosition2.firstElementChild == gridInput2){
-        allGridInputs = arrayRemove(allGridInputs, gridInput2);
-        gridPosition2.innerHTML = 'O';
-    }else if(gridPosition2.textContent == 'X' && gridPosition3.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
-        allGridInputs = arrayRemove(allGridInputs, gridInput1);
-        gridPosition1.innerHTML = 'O';
-    }else if(gridPosition4.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition6.firstElementChild == gridInput6){
-        allGridInputs = arrayRemove(allGridInputs, gridInput6);
-        gridPosition6.innerHTML = 'O';
-    }else if(gridPosition4.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition5.firstElementChild == gridInput5){
-        allGridInputs = arrayRemove(allGridInputs, gridInput5);
-        gridPosition5.innerHTML = 'O';
-    }else if(gridPosition5.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition4.firstElementChild == gridInput4){
-        allGridInputs = arrayRemove(allGridInputs, gridInput4);
-        gridPosition4.innerHTML = 'O';
-    }else if(gridPosition7.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
-        allGridInputs = arrayRemove(allGridInputs, gridInput9);
-        gridPosition9.innerHTML = 'O';
-    }else if(gridPosition7.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition8.firstElementChild == gridInput8){
-        allGridInputs = arrayRemove(allGridInputs, gridInput8);
-        gridPosition8.innerHTML = 'O';
-    }else if(gridPosition8.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
-        allGridInputs = arrayRemove(allGridInputs, gridInput7);
-        gridPosition7.innerHTML = 'O';
-    }
+        //Try to win
+        //Horizontal wins
+        else if(gridPosition1.textContent == 'O' && gridPosition2.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
+            allGridInputs = arrayRemove(allGridInputs, gridInput3);
+            gridPosition3.innerHTML = 'O';
+        }else if(gridPosition1.textContent == 'O' && gridPosition3.textContent == 'O' && gridPosition2.firstElementChild == gridInput2){
+            allGridInputs = arrayRemove(allGridInputs, gridInput2);
+            gridPosition2.innerHTML = 'O';
+        }else if(gridPosition2.textContent == 'O' && gridPosition3.textContent == 'O' && gridPosition1.firstElementChild == gridInput1){
+            allGridInputs = arrayRemove(allGridInputs, gridInput1);
+            gridPosition1.innerHTML = 'O';
+        }else if(gridPosition4.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition6.firstElementChild == gridInput6){
+            allGridInputs = arrayRemove(allGridInputs, gridInput6);
+            gridPosition6.innerHTML = 'O';
+        }else if(gridPosition4.textContent == 'O' && gridPosition6.textContent == 'O' && gridPosition5.firstElementChild == gridInput5){
+            allGridInputs = arrayRemove(allGridInputs, gridInput5);
+            gridPosition5.innerHTML = 'O';
+        }else if(gridPosition5.textContent == 'O' && gridPosition6.textContent == 'O' && gridPosition4.firstElementChild == gridInput4){
+            allGridInputs = arrayRemove(allGridInputs, gridInput4);
+            gridPosition4.innerHTML = 'O';
+        }else if(gridPosition7.textContent == 'O' && gridPosition8.textContent == 'O' && gridPosition9.firstElementChild == gridInput9){
+            allGridInputs = arrayRemove(allGridInputs, gridInput9);
+            gridPosition9.innerHTML = 'O';
+        }else if(gridPosition7.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition8.firstElementChild == gridInput8){
+            allGridInputs = arrayRemove(allGridInputs, gridInput8);
+            gridPosition8.innerHTML = 'O';
+        }else if(gridPosition8.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition7.firstElementChild == gridInput7){
+            allGridInputs = arrayRemove(allGridInputs, gridInput7);
+            gridPosition7.innerHTML = 'O';
+        }
+        //Vertical wins
+        else if(gridPosition1.textContent == 'O' && gridPosition4.textContent == 'O' && gridPosition7.firstElementChild == gridInput7){
+            allGridInputs = arrayRemove(allGridInputs, gridInput7);
+            gridPosition7.innerHTML = 'O';
+        }else if(gridPosition1.textContent == 'O' && gridPosition7.textContent == 'O' && gridPosition4.firstElementChild == gridInput4){
+            allGridInputs = arrayRemove(allGridInputs, gridInput4);
+            gridPosition4.innerHTML = 'O';
+        }else if(gridPosition4.textContent == 'O' && gridPosition7.textContent == 'O' && gridPosition1.firstElementChild == gridInput1){
+            allGridInputs = arrayRemove(allGridInputs, gridInput1);
+            gridPosition1.innerHTML = 'O';
+        }else if(gridPosition2.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition8.firstElementChild == gridInput8){
+            allGridInputs = arrayRemove(allGridInputs, gridInput8);
+            gridPosition8.innerHTML = 'O';
+        }else if(gridPosition2.textContent == 'O' && gridPosition8.textContent == 'O' && gridPosition5.firstElementChild == gridInput5){
+            allGridInputs = arrayRemove(allGridInputs, gridInput5);
+            gridPosition5.innerHTML = 'O';
+        }else if(gridPosition5.textContent == 'O' && gridPosition8.textContent == 'O' && gridPosition2.firstElementChild == gridInput2){
+            allGridInputs = arrayRemove(allGridInputs, gridInput2);
+            gridPosition2.innerHTML = 'O';
+        }else if(gridPosition3.textContent == 'O' && gridPosition6.textContent == 'O' && gridPosition9.firstElementChild == gridInput9){
+            allGridInputs = arrayRemove(allGridInputs, gridInput9);
+            gridPosition9.innerHTML = 'O';
+        }else if(gridPosition3.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition6.firstElementChild == gridInput6){
+            allGridInputs = arrayRemove(allGridInputs, gridInput6);
+            gridPosition6.innerHTML = 'O';
+        }else if(gridPosition6.textContent == 'O' && gridPosition9.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
+            allGridInputs = arrayRemove(allGridInputs, gridInput3);
+            gridPosition3.innerHTML = 'O';
+        }
+        //Diagonal wins
+        else if(gridPosition1.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition9.firstElementChild == gridInput9){
+            allGridInputs = arrayRemove(allGridInputs, gridInput9);
+            gridPosition9.innerHTML = 'O';        
+        }else if(gridPosition9.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition1.firstElementChild == gridInput1){
+            allGridInputs = arrayRemove(allGridInputs, gridInput1);
+            gridPosition1.innerHTML = 'O';
+        }else if(gridPosition3.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition7.firstElementChild == gridInput7){
+            allGridInputs = arrayRemove(allGridInputs, gridInput7);
+            gridPosition7.innerHTML = 'O';
+        }else if(gridPosition7.textContent == 'O' && gridPosition5.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
+            allGridInputs = arrayRemove(allGridInputs, gridInput3);
+            gridPosition3.innerHTML = 'O';
+        }
+        
+        //Horizontal blocks
+        else if(gridPosition1.textContent == 'X' && gridPosition2.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
+            allGridInputs = arrayRemove(allGridInputs, gridInput3);
+            gridPosition3.innerHTML = 'O';
+        }else if(gridPosition1.textContent == 'X' && gridPosition3.textContent == 'X' && gridPosition2.firstElementChild == gridInput2){
+            allGridInputs = arrayRemove(allGridInputs, gridInput2);
+            gridPosition2.innerHTML = 'O';
+        }else if(gridPosition2.textContent == 'X' && gridPosition3.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
+            allGridInputs = arrayRemove(allGridInputs, gridInput1);
+            gridPosition1.innerHTML = 'O';
+        }else if(gridPosition4.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition6.firstElementChild == gridInput6){
+            allGridInputs = arrayRemove(allGridInputs, gridInput6);
+            gridPosition6.innerHTML = 'O';
+        }else if(gridPosition4.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition5.firstElementChild == gridInput5){
+            allGridInputs = arrayRemove(allGridInputs, gridInput5);
+            gridPosition5.innerHTML = 'O';
+        }else if(gridPosition5.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition4.firstElementChild == gridInput4){
+            allGridInputs = arrayRemove(allGridInputs, gridInput4);
+            gridPosition4.innerHTML = 'O';
+        }else if(gridPosition7.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
+            allGridInputs = arrayRemove(allGridInputs, gridInput9);
+            gridPosition9.innerHTML = 'O';
+        }else if(gridPosition7.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition8.firstElementChild == gridInput8){
+            allGridInputs = arrayRemove(allGridInputs, gridInput8);
+            gridPosition8.innerHTML = 'O';
+        }else if(gridPosition8.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
+            allGridInputs = arrayRemove(allGridInputs, gridInput7);
+            gridPosition7.innerHTML = 'O';
+        }
+    
+        //Vertical blocks
+        else if(gridPosition1.textContent == 'X' && gridPosition4.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
+            allGridInputs = arrayRemove(allGridInputs, gridInput7);
+            gridPosition7.innerHTML = 'O';
+        }else if(gridPosition1.textContent == 'X' && gridPosition7.textContent == 'X' && gridPosition4.firstElementChild == gridInput4){
+            allGridInputs = arrayRemove(allGridInputs, gridInput4);
+            gridPosition4.innerHTML = 'O';
+        }else if(gridPosition4.textContent == 'X' && gridPosition7.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
+            allGridInputs = arrayRemove(allGridInputs, gridInput1);
+            gridPosition1.innerHTML = 'O';
+        }else if(gridPosition2.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition8.firstElementChild == gridInput8){
+            allGridInputs = arrayRemove(allGridInputs, gridInput8);
+            gridPosition8.innerHTML = 'O';
+        }else if(gridPosition2.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition5.firstElementChild == gridInput5){
+            allGridInputs = arrayRemove(allGridInputs, gridInput5);
+            gridPosition5.innerHTML = 'O';
+        }else if(gridPosition5.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition2.firstElementChild == gridInput2){
+            allGridInputs = arrayRemove(allGridInputs, gridInput2);
+            gridPosition2.innerHTML = 'O';
+        }else if(gridPosition3.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
+            allGridInputs = arrayRemove(allGridInputs, gridInput9);
+            gridPosition9.innerHTML = 'O';
+        }else if(gridPosition3.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition6.firstElementChild == gridInput6){
+            allGridInputs = arrayRemove(allGridInputs, gridInput6);
+            gridPosition6.innerHTML = 'O';
+        }else if(gridPosition6.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
+            allGridInputs = arrayRemove(allGridInputs, gridInput3);
+            gridPosition3.innerHTML = 'O';
+        }
+    
+        //Diagonal blocks
+        else if(gridPosition1.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
+            allGridInputs = arrayRemove(allGridInputs, gridInput9);
+            gridPosition9.innerHTML = 'O';        
+        }else if(gridPosition9.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
+            allGridInputs = arrayRemove(allGridInputs, gridInput1);
+            gridPosition1.innerHTML = 'O';
+        }else if(gridPosition3.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
+            allGridInputs = arrayRemove(allGridInputs, gridInput7);
+            gridPosition7.innerHTML = 'O';
+        }else if(gridPosition7.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
+            allGridInputs = arrayRemove(allGridInputs, gridInput3);
+            gridPosition3.innerHTML = 'O';
+        }
+    
+        //Random
+        else{
+            let compInputIndex = Math.floor(Math.random() * allGridInputs.length);
+            let compInput = allGridInputs[compInputIndex];
+            compInput.parentElement.innerHTML = 'O';
+            allGridInputs = arrayRemove(allGridInputs, compInput);
+            // console.log(allGridInputs);
+            // console.log(compInput.type)
+        }
+        checkWinner();
+        checkDraw();
+        checkPlayer = 'Player';
+    }, 1000);
 
-    //Vertical blocks
-    else if(gridPosition1.textContent == 'X' && gridPosition4.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
-        allGridInputs = arrayRemove(allGridInputs, gridInput7);
-        gridPosition7.innerHTML = 'O';
-    }else if(gridPosition1.textContent == 'X' && gridPosition7.textContent == 'X' && gridPosition4.firstElementChild == gridInput4){
-        allGridInputs = arrayRemove(allGridInputs, gridInput4);
-        gridPosition4.innerHTML = 'O';
-    }else if(gridPosition4.textContent == 'X' && gridPosition7.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
-        allGridInputs = arrayRemove(allGridInputs, gridInput1);
-        gridPosition1.innerHTML = 'O';
-    }else if(gridPosition2.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition8.firstElementChild == gridInput8){
-        allGridInputs = arrayRemove(allGridInputs, gridInput8);
-        gridPosition8.innerHTML = 'O';
-    }else if(gridPosition2.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition5.firstElementChild == gridInput5){
-        allGridInputs = arrayRemove(allGridInputs, gridInput5);
-        gridPosition5.innerHTML = 'O';
-    }else if(gridPosition5.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition2.firstElementChild == gridInput2){
-        allGridInputs = arrayRemove(allGridInputs, gridInput2);
-        gridPosition2.innerHTML = 'O';
-    }else if(gridPosition3.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
-        allGridInputs = arrayRemove(allGridInputs, gridInput9);
-        gridPosition9.innerHTML = 'O';
-    }else if(gridPosition3.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition6.firstElementChild == gridInput6){
-        allGridInputs = arrayRemove(allGridInputs, gridInput6);
-        gridPosition6.innerHTML = 'O';
-    }else if(gridPosition6.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
-        allGridInputs = arrayRemove(allGridInputs, gridInput3);
-        gridPosition3.innerHTML = 'O';
-    }
-
-    //Diagonal blocks
-    else if(gridPosition1.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
-        allGridInputs = arrayRemove(allGridInputs, gridInput9);
-        gridPosition9.innerHTML = 'O';        
-    }else if(gridPosition9.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
-        allGridInputs = arrayRemove(allGridInputs, gridInput1);
-        gridPosition1.innerHTML = 'O';
-    }else if(gridPosition3.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
-        allGridInputs = arrayRemove(allGridInputs, gridInput7);
-        gridPosition7.innerHTML = 'O';
-    }else if(gridPosition7.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
-        allGridInputs = arrayRemove(allGridInputs, gridInput3);
-        gridPosition3.innerHTML = 'O';
-    }
-
-    //Random
-    else{
-        let compInputIndex = Math.floor(Math.random() * allGridInputs.length);
-        let compInput = allGridInputs[compInputIndex];
-        compInput.parentElement.innerHTML = 'O';
-        allGridInputs = arrayRemove(allGridInputs, compInput);
-        // console.log(allGridInputs);
-        // console.log(compInput.type)
-    }
-    checkWinner();
 }
 
 function checkWinner(){
@@ -251,8 +262,9 @@ function checkWinner(){
     //Comp Diagonal Wins
     checkWinningEntries(gridPosition1, gridPosition5, gridPosition9, 'O');
     checkWinningEntries(gridPosition3, gridPosition5, gridPosition7, 'O');
-}
+};
 
+let foundWinner = false;
 function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
     if(entry1.textContent == alphabetPlayed && entry2.textContent == alphabetPlayed && entry3.textContent == alphabetPlayed){
         allGridPositions.forEach(
@@ -264,6 +276,7 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
                 };
             }
         )
+        foundWinner = true;
         entry1.classList.add('winner');entry2.classList.add('winner');entry3.classList.add('winner');
         gameBoard.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
         
@@ -282,6 +295,15 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
         }
     }
 
-}
+};
+
+function checkDraw(){
+    if(allGridInputs.length == 0 && foundWinner == false){
+        wrapper.style.background = '#000'
+        displayWinner.innerText = 'Draw';
+        displayWinner.style.color = '#fff';
+    };
+};
+
 
 playerInput();
