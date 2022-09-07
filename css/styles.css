@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -15,7 +14,7 @@
 }
 
 .header{
-    background: linear-gradient(135deg, rgba(208,127,127,1) 30%, rgba(43,140,199,1) 55%, rgba(48,5,194,0.8) 89%);
+    background: linear-gradient(135deg, rgba(208,127,127,1) 30%, rgba(43,140,199,1) 55%, rgba(48,5,194,1) 89%);
     height: 80px;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -47,7 +46,7 @@
 }
 
 .menu-btn{
-    margin-left: 0.3rem;
+    /* margin-left: 0.3rem; */
 }
 
 .control-btns{
@@ -58,6 +57,7 @@
     outline: none;
     border: 0;
     cursor: pointer;
+    font-family: 'Outfit', sans-serif;    
 }
 
 .control-btns:hover{
@@ -122,12 +122,12 @@
 }
 
 .x-wins{
-    background-image: url(./possessed-photography-9HkyszvcRBY-unsplash.jpg);
+    background-image: url("../assets/images/resource-database-oqehDHWmP9w-unsplash.jpg");
     animation: bg-slide 2s alternate 3;
 }
     
 .o-wins{
-    background-image: url(./bernard-hermant-rfpSOlH1JlQ-unsplash.jpg);
+    background-image: url("../assets/images/bernard-hermant-rfpSOlH1JlQ-unsplash.jpg");
     animation: bg-slide 2s alternate 3;
 }
 
@@ -183,7 +183,21 @@ footer a{
     }
 
     .control-btns-wrap{
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+    }
+
+    .control-btns{
+        border-radius: 40px;
+        font-size: 20px;
+        padding: 1rem;
+    }
+    
+    .control-btns:hover{
+        width: 15rem;
+        color: #7fff00;
     }
 
     .game-board{
@@ -193,6 +207,10 @@ footer a{
 }
 
 @media screen and (min-width: 900px) {
+    .menu-btn{
+        margin-left: 0.3rem;
+    }
+
     .game-board{
         min-height: 300px;
         max-width: 700px;
