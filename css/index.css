@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-image: url("../assets/images/guilherme-lahmann-c0xrT0QykL8-unsplash.jpg");
+}
+
+.header{
+    /* background: transparent; */
+    background: rgb(0, 0, 0);
+    background: linear-gradient(135deg, rgba(208,127,127,1) 30%, rgba(43,140,199,1) 55%, rgba(48,5,194,1) 89%);
+    height: 80px;
+    border-bottom: 2px solid rgba(0,0,0,1);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 3rem;
+}
+
+.header a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.home{
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.home .welcome-message{
+    padding: 2rem 10px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: 40px;
+}
+
+.home .welcome-message > span{
+    display: block;
+    font-family: 'Ms Madi', cursive;
+    font-size: 50px;
+}
+
+.home-options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home .home-button{
+    border-radius: 1rem;
+    width: 8rem;
+    color: #fff;
+    background-color: rgba(65, 58, 58, 0.6);
+    padding: 0.5rem 1rem;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    outline: none;
+    border: 1px #fff solid;
+    cursor: pointer;
+}
+
+.home #quit-btn{
+    padding: 0.5rem 2rem;
+}
+
+.home #play-game-btn:hover{
+    width: 10rem;
+    color: #7fff00;
+    border: 1px #7fff00 solid;
+}
+
+.home #credits-btn:hover{
+    width: 10rem;
+    color: #f7ff0c;
+    border: 1px #f7ff0c solid;
+}
+
+.home #quit-btn:hover{
+    width: 10rem;
+    color: #e4081e;
+    border: 1px #e4081e solid;
+}
+
+.home .mode-select{
+    width: 10rem;
+}
+
+.home .mode-select:hover{
+    color: #7fff00;
+    border: 1px #7fff00 solid;
+}
+
+.home .difficulty-easy:hover{
+    color: #7fff00;
+    border: 1px #7fff00 solid;
+}
+
+.home .difficulty-hard:hover{
+    color: #e4081e;
+    border: 1px #e4081e solid;
+}
+
+.hidden{
+    display: none;
+}
+
+.footer{
+    height: 40px;
+    background-color: transparent;
+    color: #fff;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.max-width-wrapper{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+footer a{
+    color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+    .header{
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+}

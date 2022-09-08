@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon/XO - favicon.png" type="image/x-icon">
+    <title>Welcome to Tic-Tac-Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <a href="./index.html">
+                <img src="./assets/images/XO - logo - in page.png">
+                Tic-Tac-Toe
+            </a>
+        </header>
+
+        <main class="home">
+            <h1 class="welcome-message">Let's Play <span>Tic-Tac-Toe</span></h1>
+            <div class="home-options" id="landing-home">
+                <button class="home-button" id="play-game-btn">Play Game</button>
+                <a href="#" target="_blank">
+                    <button class="home-button" id="credits-btn">Credits</button>
+                </a>
+                <button class="home-button" id="quit-btn">Quit</button>
+            </div>
+            <div class="home-options hidden" id="select-mode">
+                <button class="home-button mode-select" id="single-player-btn">Single Player</button>
+                <a href="./multiplayer.html">
+                    <button class="home-button mode-select" id="multiplayer-btn">Multiplayer</button>
+                </a>
+            </div>
+            <div class="home-options hidden" id="select-difficulty">
+                <a href="./easy.html">
+                    <button class="home-button difficulty-easy">Easy</button>
+                </a>
+                <a href="./hard.html">
+                    <button class="home-button difficulty-hard">Hard</button>
+                </a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="max-width-wrapper">
+                Developed by&nbsp;<a href="#">Blaise Okoyechira</a>, 2022.
+            </div>
+        </footer>
+    </div>
+    
+    <script src="./js/index.js"></script>
+</body>
+</html>
