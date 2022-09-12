@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fad9bd5042.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
@@ -25,26 +26,63 @@
 
         <main class="home">
             <h1 class="welcome-message">Let's Play <span>Tic-Tac-Toe</span></h1>
+
             <div class="home-options" id="landing-home">
                 <button class="home-button" id="play-game-btn">Play Game</button>
                 <a href="#" target="_blank">
                     <button class="home-button" id="credits-btn">Credits</button>
                 </a>
-                <button class="home-button" id="quit-btn">Quit</button>
+                <!-- <button class="home-button" id="quit-btn">Quit</button> -->
             </div>
+
             <div class="home-options hidden" id="select-mode">
+                <h3>Gameplay Mode</h3>
                 <button class="home-button mode-select" id="single-player-btn">Single Player</button>
                 <a href="./multiplayer.html">
                     <button class="home-button mode-select" id="multiplayer-btn">Multiplayer</button>
                 </a>
+                <button class="previous-btn" id="return-main-menu">
+                    <i class="fa-regular fa-hand-point-left"></i>
+                    Main Menu
+                </button>
             </div>
+
             <div class="home-options hidden" id="select-difficulty">
-                <a href="./easy.html">
-                    <button class="home-button difficulty-easy">Easy</button>
+                <h3>Select a Difficulty</h3>
+                <button class="home-button difficulty-easy">Easy</button>
+                <button class="home-button difficulty-hard">Hard</button>
+                <button class="previous-btn" id="return-mode-select">
+                    <i class="fa-regular fa-hand-point-left"></i>
+                    Select Mode
+                </button>
+            </div>
+
+            <div class="home-options hidden" id="character-select-easy">
+                <h3>Choose a Character</h3>
+                <a href="./easy-as-X.html">
+                    <button class="home-button ">X</button>
                 </a>
-                <a href="./hard.html">
-                    <button class="home-button difficulty-hard">Hard</button>
+                <a href="./easy-as-O.html">
+                    <button class="home-button ">O</button>
                 </a>
+                <button class="previous-btn" id="return-difficulty-select1">
+                    <i class="fa-regular fa-hand-point-left"></i>
+                    Select Difficulty
+                </button>
+            </div>
+            
+            <div class="home-options hidden" id="character-select-hard">
+                <h3>Choose a Character</h3>
+                <a href="./hard-as-X.html">
+                    <button class="home-button ">X</button>
+                </a>
+                <a href="./hard-as-O.html">
+                    <button class="home-button ">O</button>
+                </a>
+                <button class="previous-btn" id="return-difficulty-select2">
+                    <i class="fa-regular fa-hand-point-left"></i>
+                    Difficulty Select
+                </button>
             </div>
         </main>
 

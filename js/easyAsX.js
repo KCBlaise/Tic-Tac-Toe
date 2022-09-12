@@ -1,10 +1,14 @@
 const restartButton = document.querySelector('.restart-btn');
 restartButton.onclick = () =>{
-    location.reload()
-}
+    location.reload();
+};
 
 const wrapper = document.querySelector('.wrapper');
 const displayWinner = document.querySelector('.display-winner');
+const postGame = document.querySelector('.post-game');
+const postGameMessage = document.querySelector('.post-game-message');
+const postGameRestart = document.querySelector('#post-game-restart');
+const postGameWait = document.querySelector('#post-game-wait');
 
 const gameBoard = document.querySelector('.game-board');
 
@@ -36,7 +40,8 @@ function arrayRemove(arr, value){
     return arr.filter((e) => {return e != value});
 };
 
-let checkPlayer = 'Player'
+
+let checkPlayer = 'Player';
 
 function playerInput(){
     checkWinner();
@@ -51,31 +56,18 @@ function playerInput(){
                     // console.log(allGridInputs);
                     computerInput();
                 }else{e.checked = false}
-            })
+            });
         }
-    )
-}
-
+    );
+};
+    
 function computerInput(){
     checkWinner();
     checkDraw();
-    // Step-by-Step Objectives
-    // -Always play middle first if player does not
-    // -Win where possible
-    // -Prevent easy horizontal wins
-    // -Prevent easy vertical wins
-    // -Play random
+    //Win where possible, if not then play random
     setTimeout(() => {
-        
-        //Play Middle
-        if(gridPosition5.firstElementChild == gridInput5){
-            allGridInputs = arrayRemove(allGridInputs, gridInput5);
-            gridPosition5.innerHTML = 'O';
-        }
-    
-        //Try to win
         //Horizontal wins
-        else if(gridPosition1.textContent == 'O' && gridPosition2.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
+        if(gridPosition1.textContent == 'O' && gridPosition2.textContent == 'O' && gridPosition3.firstElementChild == gridInput3){
             allGridInputs = arrayRemove(allGridInputs, gridInput3);
             gridPosition3.innerHTML = 'O';
         }else if(gridPosition1.textContent == 'O' && gridPosition3.textContent == 'O' && gridPosition2.firstElementChild == gridInput2){
@@ -146,96 +138,20 @@ function computerInput(){
             allGridInputs = arrayRemove(allGridInputs, gridInput3);
             gridPosition3.innerHTML = 'O';
         }
-        
-        //Horizontal blocks
-        else if(gridPosition1.textContent == 'X' && gridPosition2.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
-            allGridInputs = arrayRemove(allGridInputs, gridInput3);
-            gridPosition3.innerHTML = 'O';
-        }else if(gridPosition1.textContent == 'X' && gridPosition3.textContent == 'X' && gridPosition2.firstElementChild == gridInput2){
-            allGridInputs = arrayRemove(allGridInputs, gridInput2);
-            gridPosition2.innerHTML = 'O';
-        }else if(gridPosition2.textContent == 'X' && gridPosition3.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
-            allGridInputs = arrayRemove(allGridInputs, gridInput1);
-            gridPosition1.innerHTML = 'O';
-        }else if(gridPosition4.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition6.firstElementChild == gridInput6){
-            allGridInputs = arrayRemove(allGridInputs, gridInput6);
-            gridPosition6.innerHTML = 'O';
-        }else if(gridPosition4.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition5.firstElementChild == gridInput5){
-            allGridInputs = arrayRemove(allGridInputs, gridInput5);
-            gridPosition5.innerHTML = 'O';
-        }else if(gridPosition5.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition4.firstElementChild == gridInput4){
-            allGridInputs = arrayRemove(allGridInputs, gridInput4);
-            gridPosition4.innerHTML = 'O';
-        }else if(gridPosition7.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
-            allGridInputs = arrayRemove(allGridInputs, gridInput9);
-            gridPosition9.innerHTML = 'O';
-        }else if(gridPosition7.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition8.firstElementChild == gridInput8){
-            allGridInputs = arrayRemove(allGridInputs, gridInput8);
-            gridPosition8.innerHTML = 'O';
-        }else if(gridPosition8.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
-            allGridInputs = arrayRemove(allGridInputs, gridInput7);
-            gridPosition7.innerHTML = 'O';
-        }
-    
-        //Vertical blocks
-        else if(gridPosition1.textContent == 'X' && gridPosition4.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
-            allGridInputs = arrayRemove(allGridInputs, gridInput7);
-            gridPosition7.innerHTML = 'O';
-        }else if(gridPosition1.textContent == 'X' && gridPosition7.textContent == 'X' && gridPosition4.firstElementChild == gridInput4){
-            allGridInputs = arrayRemove(allGridInputs, gridInput4);
-            gridPosition4.innerHTML = 'O';
-        }else if(gridPosition4.textContent == 'X' && gridPosition7.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
-            allGridInputs = arrayRemove(allGridInputs, gridInput1);
-            gridPosition1.innerHTML = 'O';
-        }else if(gridPosition2.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition8.firstElementChild == gridInput8){
-            allGridInputs = arrayRemove(allGridInputs, gridInput8);
-            gridPosition8.innerHTML = 'O';
-        }else if(gridPosition2.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition5.firstElementChild == gridInput5){
-            allGridInputs = arrayRemove(allGridInputs, gridInput5);
-            gridPosition5.innerHTML = 'O';
-        }else if(gridPosition5.textContent == 'X' && gridPosition8.textContent == 'X' && gridPosition2.firstElementChild == gridInput2){
-            allGridInputs = arrayRemove(allGridInputs, gridInput2);
-            gridPosition2.innerHTML = 'O';
-        }else if(gridPosition3.textContent == 'X' && gridPosition6.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
-            allGridInputs = arrayRemove(allGridInputs, gridInput9);
-            gridPosition9.innerHTML = 'O';
-        }else if(gridPosition3.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition6.firstElementChild == gridInput6){
-            allGridInputs = arrayRemove(allGridInputs, gridInput6);
-            gridPosition6.innerHTML = 'O';
-        }else if(gridPosition6.textContent == 'X' && gridPosition9.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
-            allGridInputs = arrayRemove(allGridInputs, gridInput3);
-            gridPosition3.innerHTML = 'O';
-        }
-    
-        //Diagonal blocks
-        else if(gridPosition1.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition9.firstElementChild == gridInput9){
-            allGridInputs = arrayRemove(allGridInputs, gridInput9);
-            gridPosition9.innerHTML = 'O';        
-        }else if(gridPosition9.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition1.firstElementChild == gridInput1){
-            allGridInputs = arrayRemove(allGridInputs, gridInput1);
-            gridPosition1.innerHTML = 'O';
-        }else if(gridPosition3.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition7.firstElementChild == gridInput7){
-            allGridInputs = arrayRemove(allGridInputs, gridInput7);
-            gridPosition7.innerHTML = 'O';
-        }else if(gridPosition7.textContent == 'X' && gridPosition5.textContent == 'X' && gridPosition3.firstElementChild == gridInput3){
-            allGridInputs = arrayRemove(allGridInputs, gridInput3);
-            gridPosition3.innerHTML = 'O';
-        }
-    
-        //Random
+        //Play Random
         else{
             let compInputIndex = Math.floor(Math.random() * allGridInputs.length);
             let compInput = allGridInputs[compInputIndex];
             compInput.parentElement.innerHTML = 'O';
             allGridInputs = arrayRemove(allGridInputs, compInput);
             // console.log(allGridInputs);
-            // console.log(compInput.type)
+            // console.log(compInput.type);
         }
+        
         checkWinner();
         checkDraw();
         checkPlayer = 'Player';
     }, 1000);
-
 }
 
 function checkWinner(){
@@ -262,7 +178,7 @@ function checkWinner(){
     //Comp Diagonal Wins
     checkWinningEntries(gridPosition1, gridPosition5, gridPosition9, 'O');
     checkWinningEntries(gridPosition3, gridPosition5, gridPosition7, 'O');
-};
+}
 
 let foundWinner = false;
 function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
@@ -281,29 +197,51 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
         gameBoard.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
         
         if(alphabetPlayed == 'X'){
-            console.log('Player Wins');
+            // console.log('Player Wins');
             wrapper.classList.add('x-wins');
             displayWinner.innerText = "'X' Wins";
             displayWinner.classList.add('winner-animation');
+            postGameMessage.innerText = 'Great Game! Would You Like to Play Again?';
+            postGameMessage.style.color = '#7fff00';
         }
 
         if(alphabetPlayed == 'O'){
-            console.log('Comp Wins');
+            // console.log('Comp Wins');
             wrapper.classList.add('o-wins');
             displayWinner.innerText = "'O' Wins";
             displayWinner.classList.add('winner-animation');
-        }
-    }
+            postGameMessage.innerText = 'Tough Luck! Would You Like to Try Again?';
+            postGameMessage.style.color = '#e4081e';
+            document.querySelector('.footer').style.background = '#000';
+        };
+
+        setTimeout(() => {
+            postGameScreen();
+        }, 5000);
+    };
 
 };
 
 function checkDraw(){
     if(allGridInputs.length == 0 && foundWinner == false){
-        wrapper.style.background = '#000'
+        wrapper.style.background = '#000';
         displayWinner.innerText = 'Draw';
         displayWinner.style.color = '#fff';
+        postGameMessage.innerText = 'Nice Try! Would You Like to Play Again?';
+        setTimeout(() => {
+            postGameScreen();
+        }, 3000);
     };
 };
 
+function postGameScreen(){
+    postGame.classList.remove('hidden');
+    postGameRestart.onclick = () => {
+        location.reload();
+    };
+    postGameWait.onclick = () => {
+        postGame.classList.add('hidden');
+    };
+};
 
 playerInput();

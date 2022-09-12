@@ -14,9 +14,9 @@
 }
 
 .header{
-    /* background: transparent; */
-    background: rgb(0, 0, 0);
-    background: linear-gradient(135deg, rgba(208,127,127,1) 30%, rgba(43,140,199,1) 55%, rgba(48,5,194,1) 89%);
+    background: transparent;
+    /* background: rgb(0, 0, 0);
+    background: linear-gradient(135deg, rgba(208,127,127,1) 30%, rgba(43,140,199,1) 55%, rgba(48,5,194,1) 89%); */
     height: 80px;
     border-bottom: 2px solid rgba(0,0,0,1);
     border-bottom-left-radius: 1rem;
@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
     /* align-items: center;
     justify-content: center; */
 }
@@ -90,7 +91,7 @@
 }
 
 .winner-animation{
-    animation: winner-animation 3s linear 1;
+    animation: winner-animation 2s linear 1;
 }
 
 .game-board-wrap{
@@ -170,9 +171,65 @@
     }
 }
 
+.post-game{
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-game .post-game-message{
+    text-align: center;
+    color: #fff;
+    padding: 1rem 10px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.post-game button {
+    font-family: 'Outfit', sans-serif;
+    border-radius: 1rem;
+    color: #fff;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    outline: none;
+    border: 1px #fff solid;
+    cursor: pointer;
+}
+
+.post-game #post-game-restart:hover{
+    width: 150px;
+    color: #7fff00;
+    border: 1px #7fff00 solid;
+}
+
+.post-game #post-game-menu:hover{
+    width: 150px;
+    color: #e4081e;
+    border: 1px #e4081e solid;
+}
+
+.post-game #post-game-wait{
+    margin-top: 32px;
+}
+
+.post-game #post-game-wait:hover{
+    width: 150px;
+    color: #f7ff0c;
+    border: 1px #f7ff0c solid;
+}
+
 .footer{
     height: 40px;
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
     display: flex;
@@ -180,7 +237,7 @@
 }
 
 .max-width-wrapper{
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -188,7 +245,11 @@ footer a{
     color: #fff;
 }
 
-@media screen and (min-width: 768px) {
+.hidden{
+    display: none;
+}
+
+@media screen and (min-width: 426px) {
     .header{
         justify-content: flex-start;
         padding: 1rem;

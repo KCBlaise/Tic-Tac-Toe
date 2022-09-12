@@ -1,10 +1,14 @@
 const restartButton = document.querySelector('.restart-btn');
 restartButton.onclick = () =>{
-    location.reload()
-}
+    location.reload();
+};
 
 const wrapper = document.querySelector('.wrapper');
 const displayWinner = document.querySelector('.display-winner');
+const postGame = document.querySelector('.post-game');
+const postGameMessage = document.querySelector('.post-game-message');
+const postGameRestart = document.querySelector('#post-game-restart');
+const postGameWait = document.querySelector('#post-game-wait');
 
 const gameBoard = document.querySelector('.game-board');
 
@@ -17,7 +21,7 @@ const gridPosition6 = document.querySelector('#grid-position6');
 const gridPosition7 = document.querySelector('#grid-position7');
 const gridPosition8 = document.querySelector('#grid-position8');
 const gridPosition9 = document.querySelector('#grid-position9');
-let gridPositions = document.getElementsByClassName('grid-position')
+let gridPositions = document.getElementsByClassName('grid-position');
 let allGridPositions = Array.from(gridPositions);
 
 const gridInput1 = document.querySelector('#grid-input1');
@@ -36,7 +40,7 @@ function arrayRemove(arr, value){
     return arr.filter((e) => {return e != value});
 };
 
-let checkPlayer = 'P1'
+let checkPlayer = 'P1';
 function playerInput(){
     allGridInputs.forEach(
         (e) =>{
@@ -46,33 +50,21 @@ function playerInput(){
                     allGridInputs = arrayRemove(allGridInputs, e);
                     console.log(allGridInputs);
                     checkWinner();
-                    checkPlayer = 'P2'
+                    checkDraw();
+                    checkPlayer = 'P2';
                 }
                 else{
                     e.parentElement.innerHTML = 'O';
                     allGridInputs = arrayRemove(allGridInputs, e);
                     console.log(allGridInputs);
                     checkWinner();
-                    checkPlayer = 'P1'
+                    checkDraw();
+                    checkPlayer = 'P1';
                 }
-            })
+            });
         }
-    )
-}
-    
-function playerTwoInput(){
-    checkWinner();
-    allGridInputs.forEach(
-        (e) =>{
-            e.addEventListener('click', ()=>{
-                e.parentElement.innerHTML = 'O';
-                allGridInputs = arrayRemove(allGridInputs, e);
-            })
-        }
-        )
-        
-    checkWinner();
-}
+    );
+};
 
 function checkWinner(){
     //Player Horizontal Wins
@@ -121,15 +113,19 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
             wrapper.classList.add('x-wins');
             displayWinner.innerText = "'X' Wins";
             displayWinner.classList.add('winner-animation');
-        }
+        };
 
         if(alphabetPlayed == 'O'){
             console.log('Comp Wins');
             wrapper.classList.add('o-wins');
             displayWinner.innerText = "'O' Wins";
             displayWinner.classList.add('winner-animation');
-        }
-    }
+        };
+        setTimeout(() => {
+            postGameScreen();
+        }, 5000);
+    };
+
 
 };
 
@@ -138,6 +134,19 @@ function checkDraw(){
         wrapper.style.background = '#000'
         displayWinner.innerText = 'Draw';
         displayWinner.style.color = '#fff';
+        setTimeout(() => {
+            postGameScreen();
+        }, 3000);
+    };
+};
+
+function postGameScreen(){
+    postGame.classList.remove('hidden');
+    postGameRestart.onclick = () => {
+        location.reload();
+    };
+    postGameWait.onclick = () => {
+        postGame.classList.add('hidden');
     };
 };
 

@@ -38,6 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
     /* justify-content: center; */
 }
 
@@ -61,11 +63,17 @@
     align-items: center;
 }
 
+.home-options h3{
+    color: #fff;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    margin-bottom: 1rem;
+}
+
 .home .home-button{
     border-radius: 1rem;
     width: 8rem;
     color: #fff;
-    background-color: rgba(65, 58, 58, 0.6);
+    background-color: rgba(65, 58, 58, 0.4);
     padding: 0.5rem 1rem;
     margin-top: 12px;
     margin-bottom: 12px;
@@ -74,9 +82,9 @@
     cursor: pointer;
 }
 
-.home #quit-btn{
+/* .home #quit-btn{
     padding: 0.5rem 2rem;
-}
+} */
 
 .home #play-game-btn:hover{
     width: 10rem;
@@ -90,11 +98,11 @@
     border: 1px #f7ff0c solid;
 }
 
-.home #quit-btn:hover{
+/* .home #quit-btn:hover{
     width: 10rem;
     color: #e4081e;
     border: 1px #e4081e solid;
-}
+} */
 
 .home .mode-select{
     width: 10rem;
@@ -115,13 +123,31 @@
     border: 1px #e4081e solid;
 }
 
+.home-options .previous-btn{
+    border-radius: 1rem;
+    color: #fff;
+    background-color: rgba(247, 255, 12, 0.8);
+    padding: 0.5rem;
+    margin-top: 24px;
+    outline: none;
+    border: 1px #f7ff0c solid;
+    cursor: pointer;
+}
+
+.home-options .previous-btn:hover{
+    color: #f7ff0c;
+    border: 1px #f7ff0c solid;
+}
+
+
 .hidden{
     display: none;
 }
 
 .footer{
     height: 40px;
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
     display: flex;
@@ -137,9 +163,93 @@ footer a{
     color: #fff;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 426px) {
     .header{
         justify-content: flex-start;
         padding: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header{
+        height: 120px;
+        font-size: 4rem;
+        padding: 1.5rem;
+    }
+
+    .home{
+        min-height: calc(100vh - 120px);
+    }
+
+    .home .welcome-message{
+        font-size: 60px;
+        padding: 1.5rem;
+    }
+
+    .home .welcome-message > span{
+        font-size: 70px;
+    }
+
+    
+    .home-options h3{
+        font-size: 32px;
+        margin-bottom: 1rem;
+    }
+
+    .home .home-button{
+        border-radius: 2rem;
+        font-size: 20px;
+        width: 200px;
+        padding: 1rem 2rem;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        border: 5px #fff solid;
+    }
+
+    .home #quit-btn{
+        padding: 1rem 2rem;
+    }
+
+    .home #play-game-btn:hover{
+        width: 300px;
+        border: 5px #7fff00 solid;
+    }
+
+    .home #credits-btn:hover{
+        width: 300px;
+        border: 5px #f7ff0c solid;
+    }
+
+    .home #quit-btn:hover{
+        width: 300px;
+        border: 5px #e4081e solid;
+    }
+
+    .home .mode-select{
+        width: 200px;
+    }
+
+    .home .mode-select:hover{
+        border: 5px #7fff00 solid;
+    }
+
+    .home .difficulty-easy:hover{
+        border: 5px #7fff00 solid;
+    }
+
+    .home .difficulty-hard:hover{
+        border: 5px #e4081e solid;
+    }
+
+    .home-options .previous-btn{
+        border-radius: 1rem;
+        padding: 0.5rem;
+        margin-top: 24px;
+        border: 2px #f7ff0c solid;
+    }
+
+    .home-options .previous-btn:hover{
+        color: #f7ff0c;
+        border: 2px #f7ff0c solid;
     }
 }
