@@ -186,7 +186,7 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
         allGridPositions.forEach(
             (item) =>{
                 item.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-                console.log(item);
+                // console.log(item);
                 if(item.firstChild.type == 'checkbox'){
                     item.innerHTML =  '';
                 };

@@ -123,6 +123,17 @@
     border: 1px #e4081e solid;
 }
 
+.home-options .char-X:hover{
+    color: #2b8cc7;
+    border: 1px #2b8cc7 solid;
+}
+
+.home-options .char-O:hover{
+    color: #ffa500;
+    border: 1px #ffa500 solid;
+}
+
+
 .home-options .previous-btn{
     border-radius: 1rem;
     color: #fff;
@@ -183,7 +194,7 @@ footer a{
 
     .home .welcome-message{
         font-size: 60px;
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .home .welcome-message > span{
@@ -239,6 +250,14 @@ footer a{
 
     .home .difficulty-hard:hover{
         border: 5px #e4081e solid;
+    }
+
+    .home-options .char-X:hover{
+        border: 5px #2b8cc7 solid;
+    }
+    
+    .home-options .char-O:hover{
+        border: 5px #ffa500 solid;
     }
 
     .home-options .previous-btn{

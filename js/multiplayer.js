@@ -48,7 +48,7 @@ function playerInput(){
                 if(checkPlayer === 'P1'){
                     e.parentElement.innerHTML = 'X';
                     allGridInputs = arrayRemove(allGridInputs, e);
-                    console.log(allGridInputs);
+                    // console.log(allGridInputs);
                     checkWinner();
                     checkDraw();
                     checkPlayer = 'P2';
@@ -56,7 +56,7 @@ function playerInput(){
                 else{
                     e.parentElement.innerHTML = 'O';
                     allGridInputs = arrayRemove(allGridInputs, e);
-                    console.log(allGridInputs);
+                    // console.log(allGridInputs);
                     checkWinner();
                     checkDraw();
                     checkPlayer = 'P1';
@@ -98,7 +98,7 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
         allGridPositions.forEach(
             (item) =>{
                 item.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-                console.log(item);
+                // console.log(item);
                 if(item.firstChild.type == 'checkbox'){
                     item.innerHTML =  '';
                 };
@@ -109,14 +109,14 @@ function checkWinningEntries(entry1, entry2, entry3, alphabetPlayed){
         foundWinner = true;
         
         if(alphabetPlayed == 'X'){
-            console.log('Player Wins');
+            // console.log('Player Wins');
             wrapper.classList.add('x-wins');
             displayWinner.innerText = "'X' Wins";
             displayWinner.classList.add('winner-animation');
         };
 
         if(alphabetPlayed == 'O'){
-            console.log('Comp Wins');
+            // console.log('Comp Wins');
             wrapper.classList.add('o-wins');
             displayWinner.innerText = "'O' Wins";
             displayWinner.classList.add('winner-animation');

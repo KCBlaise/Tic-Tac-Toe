@@ -144,8 +144,8 @@ function computerInput(){
             let compInput = allGridInputs[compInputIndex];
             compInput.parentElement.innerHTML = 'X';
             allGridInputs = arrayRemove(allGridInputs, compInput);
-            console.log(allGridInputs);
-            console.log(compInput.type)
+            // console.log(allGridInputs);
+            // console.log(compInput.type)
         }
         
         checkWinner();
