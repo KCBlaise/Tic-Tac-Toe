@@ -271,4 +271,9 @@ footer a{
         color: #f7ff0c;
         border: 2px #f7ff0c solid;
     }
+
+    .footer{
+        height: 60px;
+        font-size: 25px;
+    }
 }
