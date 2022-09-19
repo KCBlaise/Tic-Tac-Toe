@@ -9,6 +9,8 @@ const postGame = document.querySelector('.post-game');
 const postGameMessage = document.querySelector('.post-game-message');
 const postGameRestart = document.querySelector('#post-game-restart');
 const postGameWait = document.querySelector('#post-game-wait');
+postGame.style.width = document.querySelector('.main').clientWidth+"px";
+
 
 const gameBoard = document.querySelector('.game-board');
 
